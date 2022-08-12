@@ -25,7 +25,7 @@ namespace GeneratorID
                 DrawImage(gfx, fileSpec, 0, 0, (int)page.Width, (int)page.Height);
             }
             if (document.PageCount > 0) document.Save(savepath);
-            ClearFiles();
+            
         }
         private void DrawImage(XGraphics gfx, string fileSpec, int v1, int v2, int width, int height)
         {
@@ -33,7 +33,7 @@ namespace GeneratorID
             gfx.DrawImage(img, v1, v2, width, height);
         }
 
-        private void ClearFiles()
+        public void ClearFiles()
         {
             try { Directory.Delete(@"C:\PamilProgramFiles\IDgen\Data\", true); } 
             catch { };

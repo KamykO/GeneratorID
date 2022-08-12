@@ -30,7 +30,7 @@
             get { return fontSecondName; }
             set { fontSecondName = value; }
         }
-        private Font fontClas = new Font("Cambria", 11.0f, FontStyle.Bold);
+        private Font fontClas = new Font("Cambria", 37.0f, FontStyle.Bold);
         public Font FontClas
         {
             get { return fontClas; }
@@ -51,9 +51,9 @@
         public Point PointSecondName
         {
             get { return pointSecondName; }
-            set { pointSecondName = value; }
+            set { pointSecondName = value; Console.WriteLine("pointscN = " + pointSecondName.ToString()); }
         }
-        private Point pointClass = new Point(428, 240); //Cords of class
+        private Point pointClass = new Point(388, 240); //Cords of class
         public Point PointClass
         {
             get { return pointClass; }
