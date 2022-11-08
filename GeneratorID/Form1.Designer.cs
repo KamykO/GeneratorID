@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bImportBase = new System.Windows.Forms.Button();
             this.bImportTemplate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -43,7 +44,13 @@
             this.rBclass = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.fontDialogName = new System.Windows.Forms.FontDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.fontDialogSCName = new System.Windows.Forms.FontDialog();
+            this.fontDialogClass = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +99,7 @@
             // 
             // bDragPointL
             // 
-            this.bDragPointL.Location = new System.Drawing.Point(436, 131);
+            this.bDragPointL.Location = new System.Drawing.Point(436, 117);
             this.bDragPointL.Name = "bDragPointL";
             this.bDragPointL.Size = new System.Drawing.Size(27, 23);
             this.bDragPointL.TabIndex = 4;
@@ -102,7 +109,7 @@
             // 
             // bDragPointR
             // 
-            this.bDragPointR.Location = new System.Drawing.Point(403, 131);
+            this.bDragPointR.Location = new System.Drawing.Point(403, 117);
             this.bDragPointR.Name = "bDragPointR";
             this.bDragPointR.Size = new System.Drawing.Size(27, 23);
             this.bDragPointR.TabIndex = 5;
@@ -112,7 +119,7 @@
             // 
             // bDragPointU
             // 
-            this.bDragPointU.Location = new System.Drawing.Point(436, 102);
+            this.bDragPointU.Location = new System.Drawing.Point(436, 88);
             this.bDragPointU.Name = "bDragPointU";
             this.bDragPointU.Size = new System.Drawing.Size(27, 23);
             this.bDragPointU.TabIndex = 6;
@@ -122,7 +129,7 @@
             // 
             // bDragPointD
             // 
-            this.bDragPointD.Location = new System.Drawing.Point(403, 102);
+            this.bDragPointD.Location = new System.Drawing.Point(403, 88);
             this.bDragPointD.Name = "bDragPointD";
             this.bDragPointD.Size = new System.Drawing.Size(27, 23);
             this.bDragPointD.TabIndex = 7;
@@ -158,7 +165,7 @@
             // rBsdnane
             // 
             this.rBsdnane.AutoSize = true;
-            this.rBsdnane.Location = new System.Drawing.Point(403, 37);
+            this.rBsdnane.Location = new System.Drawing.Point(403, 34);
             this.rBsdnane.Name = "rBsdnane";
             this.rBsdnane.Size = new System.Drawing.Size(75, 19);
             this.rBsdnane.TabIndex = 9;
@@ -170,7 +177,7 @@
             // rBclass
             // 
             this.rBclass.AutoSize = true;
-            this.rBclass.Location = new System.Drawing.Point(403, 62);
+            this.rBclass.Location = new System.Drawing.Point(403, 56);
             this.rBclass.Name = "rBclass";
             this.rBclass.Size = new System.Drawing.Size(57, 19);
             this.rBclass.TabIndex = 10;
@@ -193,11 +200,64 @@
             // 
             this.saveFileDialog1.Filter = "Plik PDF (*.pdf*)|*.pdf*";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(481, 12);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(21, 22);
+            this.button1.TabIndex = 12;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 426);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "?";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(481, 34);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 22);
+            this.button2.TabIndex = 15;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(481, 56);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(21, 22);
+            this.button3.TabIndex = 16;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.rBclass);
             this.Controls.Add(this.rBsdnane);
@@ -235,6 +295,12 @@
         private RadioButton rBclass;
         private CheckBox checkBox1;
         private SaveFileDialog saveFileDialog1;
-        private FontDialog fontDialog1;
+        private FontDialog fontDialogName;
+        private Button button1;
+        private Label label2;
+        private Button button2;
+        private Button button3;
+        private FontDialog fontDialogSCName;
+        private FontDialog fontDialogClass;
     }
 }

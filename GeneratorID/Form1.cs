@@ -43,6 +43,13 @@ namespace GeneratorID
             if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName != null && saveFileDialog1.FileName != "")
             {
                 OpenFile();
+                PdfE pdfE = new PdfE();
+                foreach (var o in dane)
+                {
+                    
+                }
+
+                pdfE.Render(saveFileDialog1.FileName);//generowanie PDF
             }
         }
 
@@ -114,28 +121,75 @@ namespace GeneratorID
                     break;
 
             }
-            
+
+            PictrueBox1Ref();
+        }
+
+        private void PictrueBox1Ref()
+        {
             pictureBox1.Image = imgE.GenID(Image.FromFile(pathImage));
         }
 
         private void bImportBase_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Database: Import Button");
             openFileDialog1.ShowDialog();
             if (openFileDialog1.FileName != null && openFileDialog1.FileName != "")
             {
                 pathFile = openFileDialog1.FileName;
 
                 bImportTemplate.Enabled = true;
+                Console.WriteLine("Database: Impored");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fontDialogName.Font = imgE.FontName;
+            fontDialogName.ShowDialog();
+            if (!fontDialogName.FontMustExist)
+            {
+                imgE.FontName = fontDialogName.Font;
+            }
+            PictrueBox1Ref();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fontDialogSCName.Font = imgE.FontSecondName;
+            fontDialogSCName.ShowDialog();
+            
+            if (!fontDialogSCName.FontMustExist)
+            {
+                imgE.FontSecondName = fontDialogSCName.Font;
+            }
+            PictrueBox1Ref();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fontDialogClass.Font = imgE.FontClas;
+            fontDialogClass.ShowDialog();
+            if (!fontDialogClass.FontMustExist)
+            {
+                imgE.FontClas = fontDialogClass.Font;
+            }
+            PictrueBox1Ref();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            label2.Text = @"Settings icon by https://icons8.com";
+        }
+
         private void bImportTemplate_Click(object sender, EventArgs e) // Import Image
         {
+            Console.WriteLine("Image: Import Button");
             openFileDialog2.ShowDialog();
             if (openFileDialog2.FileName != null && openFileDialog2.FileName != "")
             {
                 pathImage = openFileDialog2.FileName;
                 bGen.Enabled = true;
                 pictureBox1.Image = imgE.GenID(Image.FromFile(pathImage));
+                Console.WriteLine("Image: Imported");
             }
         }
     }

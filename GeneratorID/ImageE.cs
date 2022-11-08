@@ -22,7 +22,7 @@
         public Font FontName
         {
             get { return fontName; }
-            set { fontName = value; }
+            set { fontName = value; Console.WriteLine("Font: Name: Update" + FontName.ToString()); }
         }
         private Font fontSecondName = new Font("Cambria", 11.0f, FontStyle.Bold);
         public Font FontSecondName

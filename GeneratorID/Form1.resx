@@ -61,12 +61,52 @@
     <value>146, 8</value>
   </metadata>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>12, 13</value>
+    <value>9, 11</value>
   </metadata>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>286, 8</value>
   </metadata>
-  <metadata name="fontDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="fontDialogName.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>422, 8</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAORJREFUOE+tk80RREAUhMUiAXfufo7EIQk/iYiDDOTAjRAc3273ztsaw1Rtlf2q
+        Hm1ea8aMQB7iDZjnWeq6ZkH78AaUZSlJkrCgfZwChmHgeVkWCYJAtm1jQWMMqEf5BnRdR6PWNE2mI9R2
+        D16FAcdxsOHSNA3LBV7cQ83jmyiKJAxDc/Ux5XnOssPhgVc5PVaNbdtKURTUACH62u6b3gbAnGUZNUjT
+        VPq+p/YG3E0BISj7ptsp/OUjuss4jqPpCLXduyyjcreR9n2nXteVPe9GctGtHMexVFVlRq94Ax7/TL8h
+        8gLLMkxaleABqQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAORJREFUOE+tk80RREAUhMUiAXfufo7EIQk/iYiDDOTAjRAc3273ztsaw1Rtlf2q
+        Hm1ea8aMQB7iDZjnWeq6ZkH78AaUZSlJkrCgfZwChmHgeVkWCYJAtm1jQWMMqEf5BnRdR6PWNE2mI9R2
+        D16FAcdxsOHSNA3LBV7cQ83jmyiKJAxDc/Ux5XnOssPhgVc5PVaNbdtKURTUACH62u6b3gbAnGUZNUjT
+        VPq+p/YG3E0BISj7ptsp/OUjuss4jqPpCLXduyyjcreR9n2nXteVPe9GctGtHMexVFVlRq94Ax7/TL8h
+        8gLLMkxaleABqQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAORJREFUOE+tk80RREAUhMUiAXfufo7EIQk/iYiDDOTAjRAc3273ztsaw1Rtlf2q
+        Hm1ea8aMQB7iDZjnWeq6ZkH78AaUZSlJkrCgfZwChmHgeVkWCYJAtm1jQWMMqEf5BnRdR6PWNE2mI9R2
+        D16FAcdxsOHSNA3LBV7cQ83jmyiKJAxDc/Ux5XnOssPhgVc5PVaNbdtKURTUACH62u6b3gbAnGUZNUjT
+        VPq+p/YG3E0BISj7ptsp/OUjuss4jqPpCLXduyyjcreR9n2nXteVPe9GctGtHMexVFVlRq94Ax7/TL8h
+        8gLLMkxaleABqQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="fontDialogSCName.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>564, 8</value>
+  </metadata>
+  <metadata name="fontDialogClass.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>720, 8</value>
+  </metadata>
+  <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>
