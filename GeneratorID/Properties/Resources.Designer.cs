@@ -59,5 +59,14 @@ namespace GeneratorID.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu C:\PamilProgramFiles\IDgen\.
+        /// </summary>
+        internal static string Patch {
+            get {
+                return ResourceManager.GetString("Patch", resourceCulture);
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 {
     internal class ImageE
     {
+        
         #region Others Value
         private Bitmap temp_A4ID ; // A4 temp bitmap
         private int temp_A4IDint = 0; // A4 temp photos are on A4
@@ -9,7 +10,7 @@
         private int a4counter = 1; // how many a4 are saved
         #endregion
         #region Size
-        private Size dimS = new Size(490, 325); // ID size
+        private Size dimS = new Size(501, 325); // ID size 
         public Size DimS
         {
             get { return dimS; }
@@ -98,7 +99,7 @@
                     point = new Point(PointOfFirstID.X, PointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 3);
                     break;
                 case 8:
-                    point = new Point(pointOfFirstID.X + whiteSpaceX + dimS.Width, pointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 2);
+                    point = new Point(pointOfFirstID.X + whiteSpaceX + dimS.Width, pointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 3);
                     break;
                 default:
                     MessageBox.Show("Poop #1");
@@ -125,6 +126,13 @@
             A4.SetResolution(dpi, dpi);
             return A4;
         } // Generate and return A4 Bitmap
+
+        public int ConvertmmToA4px(float mm)
+        {
+            return (int)(mm / 25.4f * 150);
+        }
+
+
         public Bitmap GenID(Image img, string name = "Imię", string secondName = "Nazwisko", string _class = "12")
         {
             try
@@ -147,31 +155,60 @@
                 return (Bitmap)img;
             }
         } // Generate and return ID image with personals 
-        public void LinkIDonA4(Bitmap bitmapId)
+
+
+        string zero = "0";
+        public void LinkIDonA4(Bitmap bitmap_Id)
         {
-            Bitmap a4;
-            if (temp_A4IDint == 0)
+            using (Bitmap bitmapId = new Bitmap(bitmap_Id, dimS))
             {
-                 a4 = GenA4();
-            }
-            else
-            {
-                a4 = temp_A4ID;
+                Bitmap a4;
+                if (temp_A4IDint == 0)
+                {
+                    a4 = GenA4();
+                }
+                else
+                {
+                    a4 = temp_A4ID;
+                }
+
+                using (Graphics g = Graphics.FromImage(a4))
+                {
+                    Point point = nextPoint();
+                    g.DrawImage(bitmapId, point.X,point.Y,dimS.Width,dimS.Height);
+                
+                }
+                temp_A4IDint += 1;
+                temp_A4ID = a4;
+
+                
+                if (a4counter == 10)
+                {
+                    zero = "";
+                }
+
+
+
+                if (temp_A4IDint == 8)
+                {
+                    temp_A4ID.Save(@"C:\PamilProgramFiles\IDgen\Data\" +zero + a4counter.ToString() + ".jpeg"); // TODO tutaj trzeba z resursków wrzucić stringa
+                    temp_A4IDint = 0;
+                    a4counter += 1;
+
+                    GC.Collect();// prepare 
+                    GC.WaitForPendingFinalizers();//clear RAM
+                    
+                }
             }
 
-            using (Graphics g = Graphics.FromImage(a4))
-            {
-                Point point = nextPoint();
-                g.DrawImage(bitmapId, point);
+            } //Link images in pattern on A4size image, and save it if count of images go up to 8.
+            public void ClearFiles()
+        {
+            try { Directory.Delete(@"C:\PamilProgramFiles\IDgen\Data\", true);
+                Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Data\");
             }
-            temp_A4IDint += 1;
-            temp_A4ID = a4;
-            if (temp_A4IDint == 8)
-            {
-                temp_A4ID.Save(@"C:\PamilProgramFiles\IDgen\Data\" + a4counter.ToString() + ".jpeg");
-                temp_A4IDint = 0;
-            }
-        } //Link images in pattern on A4size image, and save if count of images go up to 8.
 
+            catch { };
+        }
     }
 }

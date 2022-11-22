@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Pdf;
 using System.Drawing;
+using System.Resources;
 //need PdfSharpCore
 
 
@@ -17,15 +18,21 @@ namespace GeneratorID
         {
             PdfDocument document = new PdfDocument();
             document.Info.Title = "Id's";
-            var pathes = Directory.GetFiles(@"C:\PamilProgramFiles\IDgen\Data\", "*.jpeg");
+            var pathes = Directory.GetFiles(@"C:\PamilProgramFiles\IDgen\Data\", "*.jpeg"); // TODO tutaj trzeba z resursków wrzucić stringa
+            
             foreach (string fileSpec in pathes)
             {
                 PdfPage page = document.AddPage();
                 XGraphics gfx = XGraphics.FromPdfPage(page);
                 DrawImage(gfx, fileSpec, 0, 0, (int)page.Width, (int)page.Height);
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
-            if (document.PageCount > 0) document.Save(savepath);
-            
+            if (document.PageCount > 0)
+            {
+                document.Save(savepath);
+            }
+
         }
         private void DrawImage(XGraphics gfx, string fileSpec, int v1, int v2, int width, int height)
         {
@@ -35,7 +42,7 @@ namespace GeneratorID
 
         public void ClearFiles()
         {
-            try { Directory.Delete(@"C:\PamilProgramFiles\IDgen\Data\", true); } 
+            try { Directory.Delete(@"C:\PamilProgramFiles\IDgen\Data\", true); } // TODO tutaj trzeba z resursków wrzucić stringa
             catch { };
         }
     }

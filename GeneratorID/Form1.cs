@@ -8,7 +8,7 @@ namespace GeneratorID
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
-
+        TechnicalThings tt = new TechnicalThings();
 
 
         //end of coding
@@ -33,24 +33,51 @@ namespace GeneratorID
         {
             InitializeComponent();
             AllocConsole();
+            Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Data\");
+            Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Report\");
         }
 
 
 
-      
-        private void bGen_Click(object sender, EventArgs e)
+
+        private async void bGen_Click(object sender, EventArgs e)
         {
+            imgE.ClearFiles();
+
+
+
+            //try // <3
+            //{
             if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName != null && saveFileDialog1.FileName != "")
             {
+                bGen.Text = "Generowanie";
                 OpenFile();
+                progressgenerationBar1.Value = 10;
                 PdfE pdfE = new PdfE();
-                foreach (var o in dane)
+                foreach (var o in dane) // generowanie osobnych identyfikatorów z danymi
                 {
-                    
-                }
+                    imgE.LinkIDonA4(imgE.GenID(Image.FromFile(pathImage), o[0, 0].ToString(), o[0, 1].ToString(), o[0, 2].ToString()));
 
+                }
+                progressgenerationBar1.Value = 60;
                 pdfE.Render(saveFileDialog1.FileName);//generowanie PDF
+
+                tt.ClearRam();
+                progressgenerationBar1.Value = 100;
+                bGen.Text = "Generuj";
             }
+            /* }
+
+             catch (Exception ex)
+             {
+                 tt.ReportBug(ex);
+             }
+             */
+            /*
+
+
+            -Generowanie pdf z po³¹czonych ze sob¹ wygenerowanych zdjêæ
+            */
         }
 
         private void OpenFile()
@@ -123,6 +150,7 @@ namespace GeneratorID
             }
 
             PictrueBox1Ref();
+            tt.ClearRam();
         }
 
         private void PictrueBox1Ref()
@@ -180,8 +208,14 @@ namespace GeneratorID
             label2.Text = @"Settings icon by https://icons8.com";
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void bImportTemplate_Click(object sender, EventArgs e) // Import Image
         {
+            
             Console.WriteLine("Image: Import Button");
             openFileDialog2.ShowDialog();
             if (openFileDialog2.FileName != null && openFileDialog2.FileName != "")

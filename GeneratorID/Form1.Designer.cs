@@ -51,6 +51,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.fontDialogSCName = new System.Windows.Forms.FontDialog();
             this.fontDialogClass = new System.Windows.Forms.FontDialog();
+            this.progressgenerationBar1 = new System.Windows.Forms.ProgressBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.bAddMember = new System.Windows.Forms.Button();
+            this.bDelMember = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,6 +107,7 @@
             // 
             // bDragPointL
             // 
+            this.bDragPointL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bDragPointL.Location = new System.Drawing.Point(436, 117);
             this.bDragPointL.Name = "bDragPointL";
             this.bDragPointL.Size = new System.Drawing.Size(27, 23);
@@ -109,6 +118,7 @@
             // 
             // bDragPointR
             // 
+            this.bDragPointR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bDragPointR.Location = new System.Drawing.Point(403, 117);
             this.bDragPointR.Name = "bDragPointR";
             this.bDragPointR.Size = new System.Drawing.Size(27, 23);
@@ -119,6 +129,7 @@
             // 
             // bDragPointU
             // 
+            this.bDragPointU.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bDragPointU.Location = new System.Drawing.Point(436, 88);
             this.bDragPointU.Name = "bDragPointU";
             this.bDragPointU.Size = new System.Drawing.Size(27, 23);
@@ -129,6 +140,7 @@
             // 
             // bDragPointD
             // 
+            this.bDragPointD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bDragPointD.Location = new System.Drawing.Point(403, 88);
             this.bDragPointD.Name = "bDragPointD";
             this.bDragPointD.Size = new System.Drawing.Size(27, 23);
@@ -249,11 +261,92 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // progressgenerationBar1
+            // 
+            this.progressgenerationBar1.ForeColor = System.Drawing.Color.IndianRed;
+            this.progressgenerationBar1.Location = new System.Drawing.Point(12, 162);
+            this.progressgenerationBar1.Name = "progressgenerationBar1";
+            this.progressgenerationBar1.Size = new System.Drawing.Size(98, 23);
+            this.progressgenerationBar1.Step = 2;
+            this.progressgenerationBar1.TabIndex = 17;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(688, 8);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 18;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(688, 37);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.TabIndex = 19;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(688, 66);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 23);
+            this.textBox3.TabIndex = 20;
+            // 
+            // bAddMember
+            // 
+            this.bAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bAddMember.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bAddMember.Location = new System.Drawing.Point(688, 95);
+            this.bAddMember.Name = "bAddMember";
+            this.bAddMember.Size = new System.Drawing.Size(49, 23);
+            this.bAddMember.TabIndex = 21;
+            this.bAddMember.Text = "Dodaj";
+            this.bAddMember.UseVisualStyleBackColor = true;
+            // 
+            // bDelMember
+            // 
+            this.bDelMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bDelMember.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bDelMember.Location = new System.Drawing.Point(739, 95);
+            this.bDelMember.Name = "bDelMember";
+            this.bDelMember.Size = new System.Drawing.Size(49, 23);
+            this.bDelMember.TabIndex = 22;
+            this.bDelMember.Text = "Usuń";
+            this.bDelMember.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(562, 124);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(226, 107);
+            this.listBox1.TabIndex = 23;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Location = new System.Drawing.Point(562, -5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(226, 236);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.bDelMember);
+            this.Controls.Add(this.bAddMember);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.progressgenerationBar1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -270,6 +363,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bImportTemplate);
             this.Controls.Add(this.bImportBase);
+            this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -302,5 +396,13 @@
         private Button button3;
         private FontDialog fontDialogSCName;
         private FontDialog fontDialogClass;
+        private ProgressBar progressgenerationBar1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Button bAddMember;
+        private Button bDelMember;
+        private ListBox listBox1;
+        private GroupBox groupBox1;
     }
 }
