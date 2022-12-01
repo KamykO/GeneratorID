@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.bImportBase = new System.Windows.Forms.Button();
             this.bImportTemplate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bGen = new System.Windows.Forms.Button();
@@ -42,7 +41,6 @@
             this.rBname = new System.Windows.Forms.RadioButton();
             this.rBsdnane = new System.Windows.Forms.RadioButton();
             this.rBclass = new System.Windows.Forms.RadioButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.fontDialogName = new System.Windows.Forms.FontDialog();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,25 +50,31 @@
             this.fontDialogSCName = new System.Windows.Forms.FontDialog();
             this.fontDialogClass = new System.Windows.Forms.FontDialog();
             this.progressgenerationBar1 = new System.Windows.Forms.ProgressBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbSCN = new System.Windows.Forms.TextBox();
+            this.tbGR = new System.Windows.Forms.TextBox();
             this.bAddMember = new System.Windows.Forms.Button();
             this.bDelMember = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bImportBase = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chBxManualAdd = new System.Windows.Forms.CheckBox();
+            this.listBDaneManual = new System.Windows.Forms.ListBox();
+            this.cbmanualExcel = new System.Windows.Forms.CheckBox();
+            this.cbNameColumn = new System.Windows.Forms.ComboBox();
+            this.cbSNameColumn = new System.Windows.Forms.ComboBox();
+            this.cbGrColumn = new System.Windows.Forms.ComboBox();
+            this.labelColumnChangeName = new System.Windows.Forms.Label();
+            this.labelColumnChangeSName = new System.Windows.Forms.Label();
+            this.labelColumnChangeGr = new System.Windows.Forms.Label();
+            this.labelRowChangeAll = new System.Windows.Forms.Label();
+            this.tbFirstRecord = new System.Windows.Forms.TextBox();
+            this.labelRowChangeLast = new System.Windows.Forms.Label();
+            this.tbLastRecord = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bImportBase
-            // 
-            this.bImportBase.Location = new System.Drawing.Point(12, 12);
-            this.bImportBase.Name = "bImportBase";
-            this.bImportBase.Size = new System.Drawing.Size(98, 44);
-            this.bImportBase.TabIndex = 0;
-            this.bImportBase.Text = "Importuj bazę danych";
-            this.bImportBase.UseVisualStyleBackColor = true;
-            this.bImportBase.Click += new System.EventHandler(this.bImportBase_Click);
             // 
             // bImportTemplate
             // 
@@ -85,7 +89,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(160, 12);
+            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
+            this.pictureBox1.Location = new System.Drawing.Point(116, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(237, 157);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -108,7 +113,7 @@
             // bDragPointL
             // 
             this.bDragPointL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bDragPointL.Location = new System.Drawing.Point(436, 117);
+            this.bDragPointL.Location = new System.Drawing.Point(397, 146);
             this.bDragPointL.Name = "bDragPointL";
             this.bDragPointL.Size = new System.Drawing.Size(27, 23);
             this.bDragPointL.TabIndex = 4;
@@ -119,7 +124,7 @@
             // bDragPointR
             // 
             this.bDragPointR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bDragPointR.Location = new System.Drawing.Point(403, 117);
+            this.bDragPointR.Location = new System.Drawing.Point(364, 146);
             this.bDragPointR.Name = "bDragPointR";
             this.bDragPointR.Size = new System.Drawing.Size(27, 23);
             this.bDragPointR.TabIndex = 5;
@@ -130,7 +135,7 @@
             // bDragPointU
             // 
             this.bDragPointU.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bDragPointU.Location = new System.Drawing.Point(436, 88);
+            this.bDragPointU.Location = new System.Drawing.Point(397, 117);
             this.bDragPointU.Name = "bDragPointU";
             this.bDragPointU.Size = new System.Drawing.Size(27, 23);
             this.bDragPointU.TabIndex = 6;
@@ -141,7 +146,7 @@
             // bDragPointD
             // 
             this.bDragPointD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bDragPointD.Location = new System.Drawing.Point(403, 88);
+            this.bDragPointD.Location = new System.Drawing.Point(364, 117);
             this.bDragPointD.Name = "bDragPointD";
             this.bDragPointD.Size = new System.Drawing.Size(27, 23);
             this.bDragPointD.TabIndex = 7;
@@ -165,7 +170,7 @@
             this.rBname.Checked = true;
             this.rBname.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.rBname.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rBname.Location = new System.Drawing.Point(403, 12);
+            this.rBname.Location = new System.Drawing.Point(364, 41);
             this.rBname.Name = "rBname";
             this.rBname.Size = new System.Drawing.Size(48, 19);
             this.rBname.TabIndex = 8;
@@ -177,7 +182,7 @@
             // rBsdnane
             // 
             this.rBsdnane.AutoSize = true;
-            this.rBsdnane.Location = new System.Drawing.Point(403, 34);
+            this.rBsdnane.Location = new System.Drawing.Point(364, 63);
             this.rBsdnane.Name = "rBsdnane";
             this.rBsdnane.Size = new System.Drawing.Size(75, 19);
             this.rBsdnane.TabIndex = 9;
@@ -189,7 +194,7 @@
             // rBclass
             // 
             this.rBclass.AutoSize = true;
-            this.rBclass.Location = new System.Drawing.Point(403, 56);
+            this.rBclass.Location = new System.Drawing.Point(364, 85);
             this.rBclass.Name = "rBclass";
             this.rBclass.Size = new System.Drawing.Size(57, 19);
             this.rBclass.TabIndex = 10;
@@ -197,16 +202,6 @@
             this.rBclass.Text = "Grupa";
             this.rBclass.UseVisualStyleBackColor = true;
             this.rBclass.Click += new System.EventHandler(this.rBSelect);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(664, 419);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 19);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Ilość osób na liście";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // saveFileDialog1
             // 
@@ -216,7 +211,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(481, 12);
+            this.button1.Location = new System.Drawing.Point(442, 41);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(21, 22);
@@ -239,7 +234,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(481, 34);
+            this.button2.Location = new System.Drawing.Point(442, 63);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(21, 22);
@@ -252,7 +247,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(481, 56);
+            this.button3.Location = new System.Drawing.Point(442, 85);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(21, 22);
@@ -266,92 +261,366 @@
             this.progressgenerationBar1.ForeColor = System.Drawing.Color.IndianRed;
             this.progressgenerationBar1.Location = new System.Drawing.Point(12, 162);
             this.progressgenerationBar1.Name = "progressgenerationBar1";
-            this.progressgenerationBar1.Size = new System.Drawing.Size(98, 23);
+            this.progressgenerationBar1.Size = new System.Drawing.Size(98, 32);
             this.progressgenerationBar1.Step = 2;
             this.progressgenerationBar1.TabIndex = 17;
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(688, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 18;
+            this.tbName.Location = new System.Drawing.Point(688, 8);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(100, 23);
+            this.tbName.TabIndex = 18;
+            this.tbName.Visible = false;
             // 
-            // textBox2
+            // tbSCN
             // 
-            this.textBox2.Location = new System.Drawing.Point(688, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 19;
+            this.tbSCN.Location = new System.Drawing.Point(688, 37);
+            this.tbSCN.Name = "tbSCN";
+            this.tbSCN.Size = new System.Drawing.Size(100, 23);
+            this.tbSCN.TabIndex = 19;
+            this.tbSCN.Visible = false;
             // 
-            // textBox3
+            // tbGR
             // 
-            this.textBox3.Location = new System.Drawing.Point(688, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 20;
+            this.tbGR.Location = new System.Drawing.Point(688, 66);
+            this.tbGR.Name = "tbGR";
+            this.tbGR.Size = new System.Drawing.Size(100, 23);
+            this.tbGR.TabIndex = 20;
+            this.tbGR.Visible = false;
             // 
             // bAddMember
             // 
             this.bAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAddMember.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bAddMember.Location = new System.Drawing.Point(688, 95);
+            this.bAddMember.Location = new System.Drawing.Point(633, 95);
             this.bAddMember.Name = "bAddMember";
-            this.bAddMember.Size = new System.Drawing.Size(49, 23);
+            this.bAddMember.Size = new System.Drawing.Size(74, 23);
             this.bAddMember.TabIndex = 21;
             this.bAddMember.Text = "Dodaj";
             this.bAddMember.UseVisualStyleBackColor = true;
+            this.bAddMember.Visible = false;
+            this.bAddMember.Click += new System.EventHandler(this.bAddMember_Click);
             // 
             // bDelMember
             // 
             this.bDelMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bDelMember.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bDelMember.Location = new System.Drawing.Point(739, 95);
+            this.bDelMember.Location = new System.Drawing.Point(713, 95);
             this.bDelMember.Name = "bDelMember";
-            this.bDelMember.Size = new System.Drawing.Size(49, 23);
+            this.bDelMember.Size = new System.Drawing.Size(75, 23);
             this.bDelMember.TabIndex = 22;
             this.bDelMember.Text = "Usuń";
             this.bDelMember.UseVisualStyleBackColor = true;
+            this.bDelMember.Visible = false;
+            this.bDelMember.Click += new System.EventHandler(this.bDelMember_Click);
             // 
-            // listBox1
+            // bImportBase
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(562, 124);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(226, 107);
-            this.listBox1.TabIndex = 23;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.bImportBase.Location = new System.Drawing.Point(12, 12);
+            this.bImportBase.Name = "bImportBase";
+            this.bImportBase.Size = new System.Drawing.Size(98, 44);
+            this.bImportBase.TabIndex = 0;
+            this.bImportBase.Text = "Importuj bazę danych";
+            this.bImportBase.UseVisualStyleBackColor = true;
+            this.bImportBase.Click += new System.EventHandler(this.bImportBase_Click);
             // 
-            // groupBox1
+            // label1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox1.Location = new System.Drawing.Point(562, -5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 236);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(626, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 15);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Imię";
+            this.label1.UseWaitCursor = true;
+            this.label1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(626, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 15);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Nazwisko";
+            this.label3.UseWaitCursor = true;
+            this.label3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(626, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 15);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Grupa";
+            this.label4.UseWaitCursor = true;
+            this.label4.Visible = false;
+            // 
+            // chBxManualAdd
+            // 
+            this.chBxManualAdd.AutoSize = true;
+            this.chBxManualAdd.Location = new System.Drawing.Point(12, 200);
+            this.chBxManualAdd.Name = "chBxManualAdd";
+            this.chBxManualAdd.Size = new System.Drawing.Size(134, 19);
+            this.chBxManualAdd.TabIndex = 27;
+            this.chBxManualAdd.Text = "Ręcznie dodaj osoby";
+            this.chBxManualAdd.UseVisualStyleBackColor = true;
+            this.chBxManualAdd.CheckedChanged += new System.EventHandler(this.chBxManualAdd_CheckedChanged);
+            // 
+            // listBDaneManual
+            // 
+            this.listBDaneManual.FormattingEnabled = true;
+            this.listBDaneManual.ItemHeight = 15;
+            this.listBDaneManual.Location = new System.Drawing.Point(633, 124);
+            this.listBDaneManual.Name = "listBDaneManual";
+            this.listBDaneManual.Size = new System.Drawing.Size(155, 94);
+            this.listBDaneManual.TabIndex = 28;
+            this.listBDaneManual.Visible = false;
+            // 
+            // cbmanualExcel
+            // 
+            this.cbmanualExcel.AutoSize = true;
+            this.cbmanualExcel.Location = new System.Drawing.Point(12, 225);
+            this.cbmanualExcel.Name = "cbmanualExcel";
+            this.cbmanualExcel.Size = new System.Drawing.Size(181, 19);
+            this.cbmanualExcel.TabIndex = 29;
+            this.cbmanualExcel.Text = "Manualnie dostosuj Kolumny";
+            this.cbmanualExcel.UseVisualStyleBackColor = true;
+            this.cbmanualExcel.CheckedChanged += new System.EventHandler(this.cbmanualExcel_CheckedChanged);
+            // 
+            // cbNameColumn
+            // 
+            this.cbNameColumn.FormattingEnabled = true;
+            this.cbNameColumn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbNameColumn.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbNameColumn.Location = new System.Drawing.Point(124, 263);
+            this.cbNameColumn.Name = "cbNameColumn";
+            this.cbNameColumn.Size = new System.Drawing.Size(41, 23);
+            this.cbNameColumn.TabIndex = 30;
+            this.cbNameColumn.Text = "J";
+            this.cbNameColumn.Visible = false;
+            this.cbNameColumn.SelectedIndexChanged += new System.EventHandler(this.cbCoolumnchange);
+            // 
+            // cbSNameColumn
+            // 
+            this.cbSNameColumn.FormattingEnabled = true;
+            this.cbSNameColumn.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbSNameColumn.Location = new System.Drawing.Point(124, 292);
+            this.cbSNameColumn.Name = "cbSNameColumn";
+            this.cbSNameColumn.Size = new System.Drawing.Size(41, 23);
+            this.cbSNameColumn.TabIndex = 31;
+            this.cbSNameColumn.Text = "H";
+            this.cbSNameColumn.Visible = false;
+            this.cbSNameColumn.SelectedIndexChanged += new System.EventHandler(this.cbCoolumnchange);
+            // 
+            // cbGrColumn
+            // 
+            this.cbGrColumn.FormattingEnabled = true;
+            this.cbGrColumn.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbGrColumn.Location = new System.Drawing.Point(124, 321);
+            this.cbGrColumn.Name = "cbGrColumn";
+            this.cbGrColumn.Size = new System.Drawing.Size(41, 23);
+            this.cbGrColumn.TabIndex = 32;
+            this.cbGrColumn.Text = "V";
+            this.cbGrColumn.Visible = false;
+            this.cbGrColumn.SelectedIndexChanged += new System.EventHandler(this.cbCoolumnchange);
+            // 
+            // labelColumnChangeName
+            // 
+            this.labelColumnChangeName.AutoSize = true;
+            this.labelColumnChangeName.Location = new System.Drawing.Point(12, 266);
+            this.labelColumnChangeName.Name = "labelColumnChangeName";
+            this.labelColumnChangeName.Size = new System.Drawing.Size(94, 15);
+            this.labelColumnChangeName.TabIndex = 33;
+            this.labelColumnChangeName.Text = "Kolumna Imiena";
+            this.labelColumnChangeName.Visible = false;
+            // 
+            // labelColumnChangeSName
+            // 
+            this.labelColumnChangeSName.AutoSize = true;
+            this.labelColumnChangeSName.Location = new System.Drawing.Point(12, 295);
+            this.labelColumnChangeSName.Name = "labelColumnChangeSName";
+            this.labelColumnChangeSName.Size = new System.Drawing.Size(107, 15);
+            this.labelColumnChangeSName.TabIndex = 34;
+            this.labelColumnChangeSName.Text = "Kolumna Nazwiska";
+            this.labelColumnChangeSName.Visible = false;
+            // 
+            // labelColumnChangeGr
+            // 
+            this.labelColumnChangeGr.AutoSize = true;
+            this.labelColumnChangeGr.Location = new System.Drawing.Point(12, 324);
+            this.labelColumnChangeGr.Name = "labelColumnChangeGr";
+            this.labelColumnChangeGr.Size = new System.Drawing.Size(90, 15);
+            this.labelColumnChangeGr.TabIndex = 35;
+            this.labelColumnChangeGr.Text = "Kolumna Grupy";
+            this.labelColumnChangeGr.Visible = false;
+            // 
+            // labelRowChangeAll
+            // 
+            this.labelRowChangeAll.AutoSize = true;
+            this.labelRowChangeAll.Location = new System.Drawing.Point(12, 353);
+            this.labelRowChangeAll.Name = "labelRowChangeAll";
+            this.labelRowChangeAll.Size = new System.Drawing.Size(89, 15);
+            this.labelRowChangeAll.TabIndex = 36;
+            this.labelRowChangeAll.Text = "Pierwszy rekord";
+            this.labelRowChangeAll.Visible = false;
+            // 
+            // tbFirstRecord
+            // 
+            this.tbFirstRecord.Location = new System.Drawing.Point(124, 350);
+            this.tbFirstRecord.Name = "tbFirstRecord";
+            this.tbFirstRecord.Size = new System.Drawing.Size(41, 23);
+            this.tbFirstRecord.TabIndex = 37;
+            this.tbFirstRecord.Text = "2";
+            this.tbFirstRecord.Visible = false;
+            this.tbFirstRecord.WordWrap = false;
+            this.tbFirstRecord.TextChanged += new System.EventHandler(this.cbCoolumnchange);
+            // 
+            // labelRowChangeLast
+            // 
+            this.labelRowChangeLast.AutoSize = true;
+            this.labelRowChangeLast.Location = new System.Drawing.Point(12, 382);
+            this.labelRowChangeLast.Name = "labelRowChangeLast";
+            this.labelRowChangeLast.Size = new System.Drawing.Size(82, 15);
+            this.labelRowChangeLast.TabIndex = 38;
+            this.labelRowChangeLast.Text = "Ostatni rekord";
+            this.labelRowChangeLast.Visible = false;
+            // 
+            // tbLastRecord
+            // 
+            this.tbLastRecord.Location = new System.Drawing.Point(124, 379);
+            this.tbLastRecord.Name = "tbLastRecord";
+            this.tbLastRecord.Size = new System.Drawing.Size(41, 23);
+            this.tbLastRecord.TabIndex = 39;
+            this.tbLastRecord.Text = "1000";
+            this.tbLastRecord.Visible = false;
+            this.tbLastRecord.WordWrap = false;
+            this.tbLastRecord.TextChanged += new System.EventHandler(this.cbCoolumnchange);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(728, 426);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(62, 15);
+            this.linkLabel1.TabIndex = 40;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "@kamykO";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkclick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.tbLastRecord);
+            this.Controls.Add(this.labelRowChangeLast);
+            this.Controls.Add(this.tbFirstRecord);
+            this.Controls.Add(this.labelRowChangeAll);
+            this.Controls.Add(this.labelColumnChangeGr);
+            this.Controls.Add(this.labelColumnChangeSName);
+            this.Controls.Add(this.labelColumnChangeName);
+            this.Controls.Add(this.cbGrColumn);
+            this.Controls.Add(this.cbSNameColumn);
+            this.Controls.Add(this.cbNameColumn);
+            this.Controls.Add(this.cbmanualExcel);
+            this.Controls.Add(this.listBDaneManual);
+            this.Controls.Add(this.chBxManualAdd);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bDelMember);
             this.Controls.Add(this.bAddMember);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbGR);
+            this.Controls.Add(this.tbSCN);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.progressgenerationBar1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.rBclass);
             this.Controls.Add(this.rBsdnane);
             this.Controls.Add(this.rBname);
@@ -363,9 +632,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bImportTemplate);
             this.Controls.Add(this.bImportBase);
-            this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GenID";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -373,8 +641,6 @@
         }
 
         #endregion
-
-        private Button bImportBase;
         private Button bImportTemplate;
         private PictureBox pictureBox1;
         private Button bGen;
@@ -387,7 +653,6 @@
         private RadioButton rBname;
         private RadioButton rBsdnane;
         private RadioButton rBclass;
-        private CheckBox checkBox1;
         private SaveFileDialog saveFileDialog1;
         private FontDialog fontDialogName;
         private Button button1;
@@ -397,12 +662,28 @@
         private FontDialog fontDialogSCName;
         private FontDialog fontDialogClass;
         private ProgressBar progressgenerationBar1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox tbName;
+        private TextBox tbSCN;
+        private TextBox tbGR;
         private Button bAddMember;
         private Button bDelMember;
-        private ListBox listBox1;
-        private GroupBox groupBox1;
+        private Button bImportBase;
+        private Label label1;
+        private Label label3;
+        private Label label4;
+        private CheckBox chBxManualAdd;
+        private ListBox listBDaneManual;
+        private CheckBox cbmanualExcel;
+        private ComboBox cbNameColumn;
+        private ComboBox cbSNameColumn;
+        private ComboBox cbGrColumn;
+        private Label labelColumnChangeName;
+        private Label labelColumnChangeSName;
+        private Label labelColumnChangeGr;
+        private Label labelRowChangeAll;
+        private TextBox tbFirstRecord;
+        private Label labelRowChangeLast;
+        private TextBox tbLastRecord;
+        private LinkLabel linkLabel1;
     }
 }

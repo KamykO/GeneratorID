@@ -18,8 +18,61 @@ namespace GeneratorID
         int pierwszyRekord = 2;
         int rekordscout = 1000;
 
+        #region Things
+        // Database of Things
+        void AddAllControlsToLists()
+        {
+            ListofmanualAdd();
+            ListofmanualExcelAdd();
+        }
+        void ChangeStateOfConteols(List<Control> lisst)
+        {
+            foreach (object o in lisst)
+            {
+                if ((o as Control).Visible == true)
+                    (o as Control).Visible = false;
+                else
+                    (o as Control).Visible = true;
+            }
+            
+        }
+
+        List<Control> listofmanual = new List<Control>();
+        private void ListofmanualAdd()
+        {
+            listofmanual.Add(label1);
+            listofmanual.Add(label3);
+            listofmanual.Add(label4);
+            listofmanual.Add(bAddMember);
+            //listofmanual.Add(bDelMember);
+            listofmanual.Add(listBDaneManual);
+            listofmanual.Add(tbName);
+            listofmanual.Add(tbSCN);
+            listofmanual.Add(tbGR);
+        }
+        List<Control> listofmanualExcel = new List<Control>();
+        private void ListofmanualExcelAdd()
+        {
+
+            listofmanualExcel.Add(labelColumnChangeName);
+            listofmanualExcel.Add(labelColumnChangeSName);
+            listofmanualExcel.Add(labelColumnChangeGr);
+            listofmanualExcel.Add(labelRowChangeAll);
+            listofmanualExcel.Add(labelRowChangeLast);
+            listofmanualExcel.Add(cbNameColumn);
+            listofmanualExcel.Add(cbSNameColumn);
+            listofmanualExcel.Add(cbGrColumn);
+            listofmanualExcel.Add(tbFirstRecord);
+            listofmanualExcel.Add(tbLastRecord);
+
+        }
+
+        #endregion
+
+
 
         List<string[,]> dane = new List<string[,]>();
+        List<string[,]> daneManual = new List<string[,]>();
 
         string pathImage, pathFile;
         int radialButtonNr = 1;
@@ -35,6 +88,8 @@ namespace GeneratorID
             AllocConsole();
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Data\");
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Report\");
+            AddAllControlsToLists();
+
         }
 
 
@@ -82,22 +137,34 @@ namespace GeneratorID
 
         private void OpenFile()
         {
-            sheetE excel = new sheetE(pathFile, 1);
-            var imiona = excel.ReadCells(pierwszyRekord, kolumnaI, rekordscout, kolumnaI);//, checkBox1.Checked, int.Parse(textBox2.Text));
-            var nazwiska = excel.ReadCells(pierwszyRekord, kolumnaN, rekordscout, kolumnaN);//, checkBox1.Checked, int.Parse(textBox2.Text));
-            var grupa = excel.ReadCells(pierwszyRekord, kolumnaG, rekordscout, kolumnaG);// checkBox1.Checked, int.Parse(textBox2.Text));
-            
-            dane.Clear();
-            for (int i = 0; i < grupa.Length; i++)
+            if (chBxManualAdd.Checked == false)
             {
-                if (grupa[i, 0] != "BRAK")
+
+
+                sheetE excel = new sheetE(pathFile, 1);
+                var imiona = excel.ReadCells(pierwszyRekord, kolumnaI, rekordscout, kolumnaI);//, checkBox1.Checked, int.Parse(textBox2.Text));
+                var nazwiska = excel.ReadCells(pierwszyRekord, kolumnaN, rekordscout, kolumnaN);//, checkBox1.Checked, int.Parse(textBox2.Text));
+                var grupa = excel.ReadCells(pierwszyRekord, kolumnaG, rekordscout, kolumnaG);// checkBox1.Checked, int.Parse(textBox2.Text));
+
+                dane.Clear();
+                for (int i = 0; i < grupa.Length; i++)
                 {
-                    var daneLoc = new string[1, 3];
-                    daneLoc[0, 0] = imiona[i, 0];
-                    daneLoc[0, 1] = nazwiska[i, 0];
-                    daneLoc[0, 2] = grupa[i, 0];
-                    
-                    dane.Add(daneLoc);
+                    if (grupa[i, 0] != "BRAK")
+                    {
+                        var daneLoc = new string[1, 3];
+                        daneLoc[0, 0] = imiona[i, 0];
+                        daneLoc[0, 1] = nazwiska[i, 0];
+                        daneLoc[0, 2] = grupa[i, 0];
+
+                        dane.Add(daneLoc);
+                    }
+                }
+            }
+            else
+            {
+                foreach (string[,] n in daneManual)
+                {
+                    dane.Add(n);
                 }
             }
         }
@@ -185,7 +252,7 @@ namespace GeneratorID
         {
             fontDialogSCName.Font = imgE.FontSecondName;
             fontDialogSCName.ShowDialog();
-            
+
             if (!fontDialogSCName.FontMustExist)
             {
                 imgE.FontSecondName = fontDialogSCName.Font;
@@ -213,9 +280,77 @@ namespace GeneratorID
 
         }
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bAddMember_Click(object sender, EventArgs e)
+        {
+            if (tbName.Text != "" && tbSCN.Text != "" && tbGR.Text != "")
+            {
+                var daneLoc = new string[1, 3];
+                daneLoc[0, 0] = tbName.Text;
+                daneLoc[0, 1] = tbSCN.Text;
+                daneLoc[0, 2] = tbGR.Text;
+                daneManual.Add(daneLoc);
+
+                listBDaneManual.Items.Add((daneLoc[0, 0] + " " + daneLoc[0, 1] + " " + daneLoc[0, 2]).ToString());
+            }
+        }
+
+        private void bDelMember_Click(object sender, EventArgs e)
+        {
+            if (listBDaneManual.SelectedItems.Count > 0) //tak
+            {
+                //daneManual.Remove()
+                listBDaneManual.Items.Remove(listBDaneManual.SelectedIndex);
+            } // TODO
+        }
+
+        private void chBxManualAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeStateOfConteols(listofmanual);
+            bImportBase.Enabled = !chBxManualAdd.Checked;
+            if(chBxManualAdd.Checked)
+                cbmanualExcel.Checked = !chBxManualAdd.Checked;
+            cbmanualExcel.Enabled = !chBxManualAdd.Checked;
+            bImportTemplate.Enabled = true;
+        }
+        private void cbCoolumnchange(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sender == cbNameColumn)
+                    kolumnaI = (sender as ComboBox).SelectedIndex + 1;
+                else if (sender == cbSNameColumn)
+                    kolumnaN = (sender as ComboBox).SelectedIndex + 1;
+                else if (sender == cbGrColumn)
+                    kolumnaG = (sender as ComboBox).SelectedIndex + 1;
+                else if (sender == tbFirstRecord && tbFirstRecord.Text != "")
+                    pierwszyRekord = int.Parse((sender as TextBox).Text);
+                else if (sender == tbLastRecord && tbLastRecord.Text != "")
+                    rekordscout = int.Parse((sender as TextBox).Text);
+            }
+            catch
+            {
+                MessageBox.Show("Z³y format danych");
+            }
+        }
+
+        private void cbmanualExcel_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeStateOfConteols(listofmanualExcel);
+        }
+
+        private void linkclick(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd", "/c start https://github.com/KamykO");
+        }
+
         private void bImportTemplate_Click(object sender, EventArgs e) // Import Image
         {
-            
+
             Console.WriteLine("Image: Import Button");
             openFileDialog2.ShowDialog();
             if (openFileDialog2.FileName != null && openFileDialog2.FileName != "")
