@@ -73,6 +73,18 @@
             this.labelRowChangeLast = new System.Windows.Forms.Label();
             this.tbLastRecord = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.DEVl5 = new System.Windows.Forms.Label();
+            this.DEVtbwidth = new System.Windows.Forms.TextBox();
+            this.DEVl4 = new System.Windows.Forms.Label();
+            this.DEVtbIDH = new System.Windows.Forms.TextBox();
+            this.DEVl3 = new System.Windows.Forms.Label();
+            this.DEVtbwsH = new System.Windows.Forms.TextBox();
+            this.DEVl2 = new System.Windows.Forms.Label();
+            this.DEVtbwsW = new System.Windows.Forms.TextBox();
+            this.DEVl1 = new System.Windows.Forms.Label();
+            this.DEVtbIDn = new System.Windows.Forms.TextBox();
+            this.DEVbtAC = new System.Windows.Forms.Button();
+            this.DEVl6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -267,7 +279,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(688, 8);
+            this.tbName.Location = new System.Drawing.Point(365, 209);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 23);
             this.tbName.TabIndex = 18;
@@ -275,7 +287,7 @@
             // 
             // tbSCN
             // 
-            this.tbSCN.Location = new System.Drawing.Point(688, 37);
+            this.tbSCN.Location = new System.Drawing.Point(365, 238);
             this.tbSCN.Name = "tbSCN";
             this.tbSCN.Size = new System.Drawing.Size(100, 23);
             this.tbSCN.TabIndex = 19;
@@ -283,7 +295,7 @@
             // 
             // tbGR
             // 
-            this.tbGR.Location = new System.Drawing.Point(688, 66);
+            this.tbGR.Location = new System.Drawing.Point(365, 267);
             this.tbGR.Name = "tbGR";
             this.tbGR.Size = new System.Drawing.Size(100, 23);
             this.tbGR.TabIndex = 20;
@@ -293,9 +305,9 @@
             // 
             this.bAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAddMember.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bAddMember.Location = new System.Drawing.Point(633, 95);
+            this.bAddMember.Location = new System.Drawing.Point(303, 296);
             this.bAddMember.Name = "bAddMember";
-            this.bAddMember.Size = new System.Drawing.Size(74, 23);
+            this.bAddMember.Size = new System.Drawing.Size(81, 23);
             this.bAddMember.TabIndex = 21;
             this.bAddMember.Text = "Dodaj";
             this.bAddMember.UseVisualStyleBackColor = true;
@@ -306,7 +318,7 @@
             // 
             this.bDelMember.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bDelMember.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bDelMember.Location = new System.Drawing.Point(713, 95);
+            this.bDelMember.Location = new System.Drawing.Point(390, 296);
             this.bDelMember.Name = "bDelMember";
             this.bDelMember.Size = new System.Drawing.Size(75, 23);
             this.bDelMember.TabIndex = 22;
@@ -328,7 +340,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(626, 12);
+            this.label1.Location = new System.Drawing.Point(303, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 15);
             this.label1.TabIndex = 24;
@@ -339,7 +351,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(626, 40);
+            this.label3.Location = new System.Drawing.Point(303, 241);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 25;
@@ -350,7 +362,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(626, 69);
+            this.label4.Location = new System.Drawing.Point(303, 270);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 15);
             this.label4.TabIndex = 26;
@@ -373,9 +385,9 @@
             // 
             this.listBDaneManual.FormattingEnabled = true;
             this.listBDaneManual.ItemHeight = 15;
-            this.listBDaneManual.Location = new System.Drawing.Point(633, 124);
+            this.listBDaneManual.Location = new System.Drawing.Point(303, 325);
             this.listBDaneManual.Name = "listBDaneManual";
-            this.listBDaneManual.Size = new System.Drawing.Size(155, 94);
+            this.listBDaneManual.Size = new System.Drawing.Size(162, 79);
             this.listBDaneManual.TabIndex = 28;
             this.listBDaneManual.Visible = false;
             // 
@@ -581,7 +593,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(728, 426);
+            this.linkLabel1.Location = new System.Drawing.Point(403, 426);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(62, 15);
             this.linkLabel1.TabIndex = 40;
@@ -589,11 +601,133 @@
             this.linkLabel1.Text = "@kamykO";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkclick);
             // 
+            // DEVl5
+            // 
+            this.DEVl5.AutoSize = true;
+            this.DEVl5.Location = new System.Drawing.Point(180, 364);
+            this.DEVl5.Name = "DEVl5";
+            this.DEVl5.Size = new System.Drawing.Size(117, 15);
+            this.DEVl5.TabIndex = 41;
+            this.DEVl5.Text = "Ilość identyfikatorów";
+            this.DEVl5.Visible = false;
+            // 
+            // DEVtbwidth
+            // 
+            this.DEVtbwidth.Location = new System.Drawing.Point(303, 382);
+            this.DEVtbwidth.Name = "DEVtbwidth";
+            this.DEVtbwidth.Size = new System.Drawing.Size(100, 23);
+            this.DEVtbwidth.TabIndex = 42;
+            this.DEVtbwidth.Visible = false;
+            // 
+            // DEVl4
+            // 
+            this.DEVl4.AutoSize = true;
+            this.DEVl4.Location = new System.Drawing.Point(303, 364);
+            this.DEVl4.Name = "DEVl4";
+            this.DEVl4.Size = new System.Drawing.Size(168, 15);
+            this.DEVl4.TabIndex = 43;
+            this.DEVl4.Text = "Szerokość identyfikatora (mm)";
+            this.DEVl4.Visible = false;
+            // 
+            // DEVtbIDH
+            // 
+            this.DEVtbIDH.Location = new System.Drawing.Point(304, 338);
+            this.DEVtbIDH.Name = "DEVtbIDH";
+            this.DEVtbIDH.Size = new System.Drawing.Size(100, 23);
+            this.DEVtbIDH.TabIndex = 44;
+            this.DEVtbIDH.Visible = false;
+            // 
+            // DEVl3
+            // 
+            this.DEVl3.AutoSize = true;
+            this.DEVl3.Location = new System.Drawing.Point(303, 320);
+            this.DEVl3.Name = "DEVl3";
+            this.DEVl3.Size = new System.Drawing.Size(169, 15);
+            this.DEVl3.TabIndex = 45;
+            this.DEVl3.Text = "Wysokość identyfikatora (mm)";
+            this.DEVl3.Visible = false;
+            // 
+            // DEVtbwsH
+            // 
+            this.DEVtbwsH.Location = new System.Drawing.Point(303, 297);
+            this.DEVtbwsH.Name = "DEVtbwsH";
+            this.DEVtbwsH.Size = new System.Drawing.Size(100, 23);
+            this.DEVtbwsH.TabIndex = 46;
+            this.DEVtbwsH.Visible = false;
+            // 
+            // DEVl2
+            // 
+            this.DEVl2.AutoSize = true;
+            this.DEVl2.Location = new System.Drawing.Point(303, 278);
+            this.DEVl2.Name = "DEVl2";
+            this.DEVl2.Size = new System.Drawing.Size(161, 15);
+            this.DEVl2.TabIndex = 47;
+            this.DEVl2.Text = "Przerwa między w pionie (px)";
+            this.DEVl2.Visible = false;
+            // 
+            // DEVtbwsW
+            // 
+            this.DEVtbwsW.Location = new System.Drawing.Point(304, 255);
+            this.DEVtbwsW.Name = "DEVtbwsW";
+            this.DEVtbwsW.Size = new System.Drawing.Size(100, 23);
+            this.DEVtbwsW.TabIndex = 48;
+            this.DEVtbwsW.Visible = false;
+            // 
+            // DEVl1
+            // 
+            this.DEVl1.AutoSize = true;
+            this.DEVl1.Location = new System.Drawing.Point(304, 235);
+            this.DEVl1.Name = "DEVl1";
+            this.DEVl1.Size = new System.Drawing.Size(173, 15);
+            this.DEVl1.TabIndex = 49;
+            this.DEVl1.Text = "Przewa między w poziomie (px)";
+            this.DEVl1.Visible = false;
+            // 
+            // DEVtbIDn
+            // 
+            this.DEVtbIDn.Location = new System.Drawing.Point(186, 382);
+            this.DEVtbIDn.Name = "DEVtbIDn";
+            this.DEVtbIDn.Size = new System.Drawing.Size(100, 23);
+            this.DEVtbIDn.TabIndex = 50;
+            this.DEVtbIDn.Visible = false;
+            // 
+            // DEVbtAC
+            // 
+            this.DEVbtAC.Location = new System.Drawing.Point(186, 338);
+            this.DEVbtAC.Name = "DEVbtAC";
+            this.DEVbtAC.Size = new System.Drawing.Size(100, 23);
+            this.DEVbtAC.TabIndex = 51;
+            this.DEVbtAC.Text = "Akceptuj DEV";
+            this.DEVbtAC.UseVisualStyleBackColor = true;
+            this.DEVbtAC.Visible = false;
+            this.DEVbtAC.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // DEVl6
+            // 
+            this.DEVl6.AutoSize = true;
+            this.DEVl6.Location = new System.Drawing.Point(210, 408);
+            this.DEVl6.Name = "DEVl6";
+            this.DEVl6.Size = new System.Drawing.Size(53, 15);
+            this.DEVl6.TabIndex = 52;
+            this.DEVl6.Text = "(max 12)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(477, 450);
+            this.Controls.Add(this.DEVl6);
+            this.Controls.Add(this.DEVbtAC);
+            this.Controls.Add(this.DEVtbIDn);
+            this.Controls.Add(this.DEVl1);
+            this.Controls.Add(this.DEVtbwsW);
+            this.Controls.Add(this.DEVl2);
+            this.Controls.Add(this.DEVtbwsH);
+            this.Controls.Add(this.DEVl3);
+            this.Controls.Add(this.DEVtbIDH);
+            this.Controls.Add(this.DEVl4);
+            this.Controls.Add(this.DEVtbwidth);
+            this.Controls.Add(this.DEVl5);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tbLastRecord);
             this.Controls.Add(this.labelRowChangeLast);
@@ -632,8 +766,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bImportTemplate);
             this.Controls.Add(this.bImportBase);
+            this.Location = new System.Drawing.Point(504, 489);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(504, 489);
             this.Name = "Form1";
             this.Text = "GenID";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Form1_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -685,5 +824,17 @@
         private Label labelRowChangeLast;
         private TextBox tbLastRecord;
         private LinkLabel linkLabel1;
+        private Label DEVl5;
+        private TextBox DEVtbwidth;
+        private Label DEVl4;
+        private TextBox DEVtbIDH;
+        private Label DEVl3;
+        private TextBox DEVtbwsH;
+        private Label DEVl2;
+        private TextBox DEVtbwsW;
+        private Label DEVl1;
+        private TextBox DEVtbIDn;
+        private Button DEVbtAC;
+        private Label DEVl6;
     }
 }

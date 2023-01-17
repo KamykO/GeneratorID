@@ -24,6 +24,7 @@ namespace GeneratorID
         {
             ListofmanualAdd();
             ListofmanualExcelAdd();
+            listofDEVAdd();
         }
         void ChangeStateOfConteols(List<Control> lisst)
         {
@@ -64,9 +65,25 @@ namespace GeneratorID
             listofmanualExcel.Add(cbGrColumn);
             listofmanualExcel.Add(tbFirstRecord);
             listofmanualExcel.Add(tbLastRecord);
+           
 
         }
-
+        List<Control> listofDEV = new List<Control>();
+        private void listofDEVAdd()
+        {
+            listofDEV.Add(DEVl1);
+            listofDEV.Add(DEVl2);
+            listofDEV.Add(DEVl3);
+            listofDEV.Add(DEVl4);
+            listofDEV.Add(DEVl5);
+            listofDEV.Add(DEVtbIDH);
+            listofDEV.Add(DEVtbIDn);
+            listofDEV.Add(DEVtbwsH);
+            listofDEV.Add(DEVtbwsW);
+            listofDEV.Add(DEVtbwidth);
+            listofDEV.Add(DEVbtAC);
+            listofDEV.Add(DEVl6);
+        }
         #endregion
 
 
@@ -85,26 +102,32 @@ namespace GeneratorID
         public Form1()
         {
             InitializeComponent();
-            AllocConsole();
+            //AllocConsole();
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Data\");
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Report\");
             AddAllControlsToLists();
 
         }
 
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            InfoScr scr = new InfoScr();
+            scr.Show();
+            scr.TopMost = true;
+        }
 
 
         private async void bGen_Click(object sender, EventArgs e)
         {
             imgE.ClearFiles();
 
-
+            
 
             //try // <3
             //{
             if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName != null && saveFileDialog1.FileName != "")
             {
+                progressgenerationBar1.Value = 5;
                 bGen.Text = "Generowanie";
                 OpenFile();
                 progressgenerationBar1.Value = 10;
@@ -296,7 +319,11 @@ namespace GeneratorID
                 daneManual.Add(daneLoc);
 
                 listBDaneManual.Items.Add((daneLoc[0, 0] + " " + daneLoc[0, 1] + " " + daneLoc[0, 2]).ToString());
+                tbName.Text = "";
+                tbSCN.Text = "";
+                tbGR.Text = "";
             }
+
         }
 
         private void bDelMember_Click(object sender, EventArgs e)
@@ -310,12 +337,18 @@ namespace GeneratorID
 
         private void chBxManualAdd_CheckedChanged(object sender, EventArgs e)
         {
+            if (DEVtbwsW.Visible == true)
+            {
+                ChangeStateOfConteols(listofDEV);
+            }
+
             ChangeStateOfConteols(listofmanual);
             bImportBase.Enabled = !chBxManualAdd.Checked;
             if(chBxManualAdd.Checked)
                 cbmanualExcel.Checked = !chBxManualAdd.Checked;
             cbmanualExcel.Enabled = !chBxManualAdd.Checked;
             bImportTemplate.Enabled = true;
+
         }
         private void cbCoolumnchange(object sender, EventArgs e)
         {
@@ -346,6 +379,36 @@ namespace GeneratorID
         private void linkclick(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("cmd", "/c start https://github.com/KamykO");
+        }
+
+        private void Form1_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            MessageBox.Show("DEV MENU");
+            chBxManualAdd.Checked = false;
+            ChangeStateOfConteols(listofDEV);
+            
+
+            DEVtbwsW.Text = imgE.SGwhiteSpaceX.ToString(); // przerwa w poziomie
+            DEVtbwsH.Text = imgE.SGwhiteSpaceY.ToString(); //przerwa w pionie
+            DEVtbIDH.Text = imgE.ConvertA4pxtomm(imgE.DimS.Height).ToString(); //wysokoœæ ID
+            DEVtbwidth.Text = imgE.ConvertA4pxtomm(imgE.DimS.Width).ToString(); //szerokoœæ ID
+            DEVtbIDn.Text = imgE.SGmaxIdOnPage.ToString(); //ile ID
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                imgE.SGwhiteSpaceX = int.Parse(DEVtbwsW.Text); // przerwa w poziomie
+                imgE.SGwhiteSpaceY = int.Parse(DEVtbwsH.Text); //przerwa w pionie
+                imgE.DimS = new Size(imgE.ConvertmmToA4px(float.Parse(DEVtbwidth.Text)),imgE.ConvertmmToA4px(float.Parse(DEVtbIDH.Text)); //wysokoœæ ID
+                imgE.SGmaxIdOnPage = int.Parse(DEVtbIDn.Text);//ile ID
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("DEV: Wprowadzono z³¹ wartoœæ");
+            }
         }
 
         private void bImportTemplate_Click(object sender, EventArgs e) // Import Image

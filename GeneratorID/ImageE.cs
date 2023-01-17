@@ -2,9 +2,9 @@
 {
     internal class ImageE
     {
-        
+
         #region Others Value
-        private Bitmap temp_A4ID ; // A4 temp bitmap
+        private Bitmap temp_A4ID; // A4 temp bitmap
         private int temp_A4IDint = 0; // A4 temp photos are on A4
 
         private int a4counter = 1; // how many a4 are saved
@@ -19,19 +19,19 @@
         #endregion
         #region Fonts
         // Fonts
-        private Font fontName = new Font("Cambria", 24.0f, FontStyle.Bold);
+        private Font fontName = new Font("Cambria", 26.0f, FontStyle.Bold);
         public Font FontName
         {
             get { return fontName; }
             set { fontName = value; Console.WriteLine("Font: Name: Update" + FontName.ToString()); }
         }
-        private Font fontSecondName = new Font("Cambria", 11.0f, FontStyle.Bold);
+        private Font fontSecondName = new Font("Cambria", 13.0f, FontStyle.Bold);
         public Font FontSecondName
         {
             get { return fontSecondName; }
             set { fontSecondName = value; }
         }
-        private Font fontClas = new Font("Cambria", 37.0f, FontStyle.Bold);
+        private Font fontClas = new Font("Cambria", 39.0f, FontStyle.Bold);
         public Font FontClas
         {
             get { return fontClas; }
@@ -54,7 +54,7 @@
             get { return pointSecondName; }
             set { pointSecondName = value; Console.WriteLine("pointscN = " + pointSecondName.ToString()); }
         }
-        private Point pointClass = new Point(388, 240); //Cords of class
+        private Point pointClass = new Point(390, 240); //Cords of class
         public Point PointClass
         {
             get { return pointClass; }
@@ -67,11 +67,13 @@
         public Point PointOfFirstID
         { get { return pointOfFirstID; } set { pointOfFirstID = value; } }
 
+        public ushort HowManyCardsonPage; // to do
+
         private ushort idsCounter = 1; //counter - how many Id's is on A4 (f() below)
         private Point nextPoint()
         { // need update and mods 
             Point point;
-            if (idsCounter == 9)
+            if (idsCounter == maxIdOnPage)
             {
                 idsCounter = 1;
             }
@@ -87,7 +89,7 @@
                     point = new Point(PointOfFirstID.X, PointOfFirstID.Y + whiteSpaceY + dimS.Height);
                     break;
                 case 4:
-                    point = new Point(PointOfFirstID.X + whiteSpaceX + dimS.Width,/**/ PointOfFirstID.Y + whiteSpaceY + dimS.Height);
+                    point = new Point(PointOfFirstID.X + whiteSpaceX + dimS.Width, PointOfFirstID.Y + whiteSpaceY + dimS.Height);
                     break;
                 case 5:
                     point = new Point(PointOfFirstID.X, PointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 2);
@@ -100,6 +102,18 @@
                     break;
                 case 8:
                     point = new Point(pointOfFirstID.X + whiteSpaceX + dimS.Width, pointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 3);
+                    break;
+                case 9:
+                    point = new Point(PointOfFirstID.X, PointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 4);
+                    break;
+                case 10:
+                    point = new Point(pointOfFirstID.X + whiteSpaceX + dimS.Width, pointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 4);
+                    break;
+                case 11:
+                    point = new Point(PointOfFirstID.X, PointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 5);
+                    break;
+                case 12:
+                    point = new Point(pointOfFirstID.X + whiteSpaceX + dimS.Width, pointOfFirstID.Y + (whiteSpaceY + dimS.Height) * 5);
                     break;
                 default:
                     MessageBox.Show("Poop #1");
@@ -114,8 +128,25 @@
 
 
         private int whiteSpaceX = 2; // space X
+        public int SGwhiteSpaceX //Set Get
+        {
+            get { return whiteSpaceX; }
+            set { whiteSpaceX = value; }
+        }
         private int whiteSpaceY = 2; // space Y
-        private int maxIdOnPage = 8; // at  this moment max is '8'
+        public int SGwhiteSpaceY //Set Get
+        {
+            get { return whiteSpaceY; }
+            set { whiteSpaceY = value; }
+        }
+        private int maxIdOnPage = 10; // at  this moment max is '10'
+        public int SGmaxIdOnPage //Set Get
+        {
+            get { return maxIdOnPage; }
+            set { if (value >= 12) { maxIdOnPage = value; } else { maxIdOnPage = 10;} }
+
+        }
+
         #endregion
 
         public Bitmap GenA4()
@@ -130,6 +161,10 @@
         public int ConvertmmToA4px(float mm)
         {
             return (int)(mm / 25.4f * 150);
+        }
+        public float ConvertA4pxtomm(int px)
+        {
+            return px / 150 * 25.4f;
         }
 
 
@@ -189,7 +224,7 @@
 
 
 
-                if (temp_A4IDint == 8)
+                if (temp_A4IDint == 10) 
                 {
                     temp_A4ID.Save(@"C:\PamilProgramFiles\IDgen\Data\" +zero + a4counter.ToString() + ".jpeg"); // TODO tutaj trzeba z resursków wrzucić stringa
                     temp_A4IDint = 0;
