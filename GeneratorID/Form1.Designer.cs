@@ -710,6 +710,7 @@
             this.DEVl6.Size = new System.Drawing.Size(53, 15);
             this.DEVl6.TabIndex = 52;
             this.DEVl6.Text = "(max 12)";
+            this.DEVl6.Visible = false;
             // 
             // Form1
             // 

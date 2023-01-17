@@ -82,7 +82,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 15);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Aktualna wersja: 2.1";
+            this.label4.Text = "Aktualna wersja: 2.2";
             // 
             // InfoScr
             // 

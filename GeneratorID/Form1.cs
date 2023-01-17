@@ -83,6 +83,7 @@ namespace GeneratorID
             listofDEV.Add(DEVtbwidth);
             listofDEV.Add(DEVbtAC);
             listofDEV.Add(DEVl6);
+            
         }
         #endregion
 
@@ -402,7 +403,7 @@ namespace GeneratorID
             {
                 imgE.SGwhiteSpaceX = int.Parse(DEVtbwsW.Text); // przerwa w poziomie
                 imgE.SGwhiteSpaceY = int.Parse(DEVtbwsH.Text); //przerwa w pionie
-                imgE.DimS = new Size(imgE.ConvertmmToA4px(float.Parse(DEVtbwidth.Text)),imgE.ConvertmmToA4px(float.Parse(DEVtbIDH.Text)); //wysokoœæ ID
+                imgE.DimS = new Size(imgE.ConvertmmToA4px(float.Parse(DEVtbwidth.Text)),imgE.ConvertmmToA4px(float.Parse(DEVtbIDH.Text))); //wysokoœæ ID
                 imgE.SGmaxIdOnPage = int.Parse(DEVtbIDn.Text);//ile ID
             }
             catch (Exception ex)
