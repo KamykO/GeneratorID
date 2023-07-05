@@ -139,7 +139,7 @@ namespace GeneratorID
         public Form1()
         {
             InitializeComponent();
-            AllocConsole(); //konsola
+            //AllocConsole(); //konsola
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Data\");
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Report\");
             AddAllControlsToLists();
