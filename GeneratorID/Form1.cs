@@ -25,17 +25,30 @@ namespace GeneratorID
             ListofmanualAdd();
             ListofmanualExcelAdd();
             listofDEVAdd();
+            listofControlAdd();
         }
-        void ChangeStateOfConteols(List<Control> lisst)
+        void ChangeStateOfConteols(List<Control> lisst, bool visible = false)
         {
-            foreach (object o in lisst)
+            if (visible == false)
             {
-                if ((o as Control).Visible == true)
-                    (o as Control).Visible = false;
-                else
-                    (o as Control).Visible = true;
+                foreach (object o in lisst)
+                {
+                    if ((o as Control).Visible == true)
+                        (o as Control).Visible = false;
+                    else
+                        (o as Control).Visible = true;
+                }
             }
-            
+            else
+            {
+                foreach (object o in lisst)
+                {
+                    if ((o as Control).Enabled == true)
+                        (o as Control).Enabled = false;
+                    else
+                        (o as Control).Enabled = true;
+                }
+            }
         }
 
         List<Control> listofmanual = new List<Control>();
@@ -65,7 +78,7 @@ namespace GeneratorID
             listofmanualExcel.Add(cbGrColumn);
             listofmanualExcel.Add(tbFirstRecord);
             listofmanualExcel.Add(tbLastRecord);
-           
+            listofmanualExcel.Add(labelinfo);
 
         }
         List<Control> listofDEV = new List<Control>();
@@ -83,8 +96,31 @@ namespace GeneratorID
             listofDEV.Add(DEVtbwidth);
             listofDEV.Add(DEVbtAC);
             listofDEV.Add(DEVl6);
-            
+
+
         }
+        List<Control> listofControl = new List<Control>();
+        private void listofControlAdd()
+        {
+            listofControl.Add(rBname);
+            listofControl.Add(rBsdnane);
+            listofControl.Add(rBclass);
+
+            listofControl.Add(button1);
+            listofControl.Add(button2);
+            listofControl.Add(button3);
+
+            listofControl.Add(bbrushN);
+            listofControl.Add(bbrushS);
+            listofControl.Add(bbrushG);
+
+            listofControl.Add(bDragPointD);
+            listofControl.Add(bDragPointU);
+            listofControl.Add(bDragPointL);
+            listofControl.Add(bDragPointR);
+
+        }
+
         #endregion
 
 
@@ -103,7 +139,7 @@ namespace GeneratorID
         public Form1()
         {
             InitializeComponent();
-            //AllocConsole();
+            AllocConsole(); //konsola
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Data\");
             Directory.CreateDirectory(@"C:\PamilProgramFiles\IDgen\Report\");
             AddAllControlsToLists();
@@ -122,7 +158,18 @@ namespace GeneratorID
         {
             imgE.ClearFiles();
 
-            
+            if (pathImage == null)
+            {
+                MessageBox.Show("Brak obrazka");
+                return;
+            }
+
+            if (pathFile == null && chBxManualAdd.Checked == false)
+            {
+                MessageBox.Show("Brak jakiejkolwiek bazy danych");
+                return;
+            }
+
 
             //try // <3
             //{
@@ -253,6 +300,7 @@ namespace GeneratorID
         {
             Console.WriteLine("Database: Import Button");
             openFileDialog1.ShowDialog();
+            Console.WriteLine(openFileDialog1.FileName);
             if (openFileDialog1.FileName != null && openFileDialog1.FileName != "")
             {
                 pathFile = openFileDialog1.FileName;
@@ -342,10 +390,13 @@ namespace GeneratorID
             {
                 ChangeStateOfConteols(listofDEV);
             }
+            if (rBname.Enabled != true)
+                ChangeStateOfConteols(listofControl, true);
 
             ChangeStateOfConteols(listofmanual);
+
             bImportBase.Enabled = !chBxManualAdd.Checked;
-            if(chBxManualAdd.Checked)
+            if (chBxManualAdd.Checked)
                 cbmanualExcel.Checked = !chBxManualAdd.Checked;
             cbmanualExcel.Enabled = !chBxManualAdd.Checked;
             bImportTemplate.Enabled = true;
@@ -374,6 +425,9 @@ namespace GeneratorID
 
         private void cbmanualExcel_CheckedChanged(object sender, EventArgs e)
         {
+            if (cbmanualExcel.Checked)
+                chBxManualAdd.Checked = !cbmanualExcel.Checked;
+            chBxManualAdd.Enabled = !cbmanualExcel.Checked;
             ChangeStateOfConteols(listofmanualExcel);
         }
 
@@ -387,13 +441,13 @@ namespace GeneratorID
             MessageBox.Show("DEV MENU");
             chBxManualAdd.Checked = false;
             ChangeStateOfConteols(listofDEV);
-            
+
 
             DEVtbwsW.Text = imgE.SGwhiteSpaceX.ToString(); // przerwa w poziomie
             DEVtbwsH.Text = imgE.SGwhiteSpaceY.ToString(); //przerwa w pionie
             DEVtbIDH.Text = imgE.ConvertA4pxtomm(imgE.DimS.Height).ToString(); //wysokoœæ ID
             DEVtbwidth.Text = imgE.ConvertA4pxtomm(imgE.DimS.Width).ToString(); //szerokoœæ ID
-            DEVtbIDn.Text = imgE.SGmaxIdOnPage.ToString(); //ile ID
+            DEVtbIDn.Text = (imgE.SGmaxIdOnPage - 1).ToString(); //ile ID
 
         }
 
@@ -403,8 +457,8 @@ namespace GeneratorID
             {
                 imgE.SGwhiteSpaceX = int.Parse(DEVtbwsW.Text); // przerwa w poziomie
                 imgE.SGwhiteSpaceY = int.Parse(DEVtbwsH.Text); //przerwa w pionie
-                imgE.DimS = new Size(imgE.ConvertmmToA4px(float.Parse(DEVtbwidth.Text)),imgE.ConvertmmToA4px(float.Parse(DEVtbIDH.Text))); //wysokoœæ ID
-                imgE.SGmaxIdOnPage = int.Parse(DEVtbIDn.Text);//ile ID
+                imgE.DimS = new Size(imgE.ConvertmmToA4px(float.Parse(DEVtbwidth.Text)), imgE.ConvertmmToA4px(float.Parse(DEVtbIDH.Text))); //wysokoœæ ID
+                imgE.SGmaxIdOnPage = int.Parse(DEVtbIDn.Text) + 1;//ile ID Wiem powinienem to naporawiæ, ale dzia³a tak?
             }
             catch (Exception ex)
             {
@@ -414,6 +468,8 @@ namespace GeneratorID
 
         private void bImportTemplate_Click(object sender, EventArgs e) // Import Image
         {
+            if (rBname.Enabled != true)
+                ChangeStateOfConteols(listofControl, true);
 
             Console.WriteLine("Image: Import Button");
             openFileDialog2.ShowDialog();
@@ -424,6 +480,31 @@ namespace GeneratorID
                 pictureBox1.Image = imgE.GenID(Image.FromFile(pathImage));
                 Console.WriteLine("Image: Imported");
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e) // brush
+        {
+            colorDialog1.Color = Color.Black;
+            colorDialog1.ShowDialog();
+            imgE.ColorName = colorDialog1.Color;
+            PictrueBox1Ref();
+        }
+
+        private void bbrushS_Click(object sender, EventArgs e)
+        {
+            colorDialog2.Color = Color.Black;
+            colorDialog2.ShowDialog();
+            imgE.ColorSecondName = colorDialog2.Color;
+            PictrueBox1Ref();
+        }
+
+        private void bbrushG_Click(object sender, EventArgs e)
+        {
+            colorDialog3.Color = Color.Black;
+            colorDialog3.ShowDialog();
+            Console.WriteLine("Color:" + colorDialog3.Color);
+            imgE.ColorClas = colorDialog3.Color;
+            PictrueBox1Ref();
         }
     }
 }

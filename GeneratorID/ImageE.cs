@@ -38,6 +38,28 @@
             set { fontClas = value; }
 
         }
+
+        private Color colorName = Color.Black;
+        public Color ColorName
+        {
+            get { return colorName; }
+            set { colorName = value; }
+
+        }
+        private Color colorSecondName = Color.Black;
+        public Color ColorSecondName
+        {
+            get { return colorSecondName; }
+            set { colorSecondName = value; }
+
+        }
+        private Color colorClas = Color.Black;
+        public Color ColorClas
+        {
+            get { return colorClas; }
+            set { colorClas = value; }
+
+        }
         // End of Fonts
         #endregion
         #region Points
@@ -139,7 +161,7 @@
             get { return whiteSpaceY; }
             set { whiteSpaceY = value; }
         }
-        private int maxIdOnPage = 10; // at  this moment max is '10'
+        private int maxIdOnPage = 11; // at  this moment max is '10'
         public int SGmaxIdOnPage //Set Get
         {
             get { return maxIdOnPage; }
@@ -179,9 +201,9 @@
                 {
                     //g.MeasureString(name, fontName);
                     //float WidthScaleRatio = Room.Width / RealSize.Width; 
-                    g.DrawString(name, fontName, Brushes.Black, pointName);
-                    g.DrawString(secondName, fontSecondName, Brushes.Black, pointSecondName);
-                    g.DrawString(_class, fontClas, Brushes.Black, pointClass);
+                    g.DrawString(name, fontName, new SolidBrush(colorName), pointName);
+                    g.DrawString(secondName, fontSecondName,new SolidBrush(colorSecondName), pointSecondName);
+                    g.DrawString(_class, fontClas, new SolidBrush(colorClas), pointClass);
                 }
                 return resized;
             }
