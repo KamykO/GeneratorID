@@ -28,85 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            linkLabel1 = new LinkLabel();
+            label4 = new Label();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "!!UWAGA!!";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 30);
+            label1.TabIndex = 0;
+            label1.Text = "!!UWAGA!!";
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(497, 49);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ta wersja programu wymaga do działania zainstalowanego pakietu programu Microsoft" +
-    " Excel";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(12, 51);
+            label2.Name = "label2";
+            label2.Size = new Size(497, 49);
+            label2.TabIndex = 1;
+            label2.Text = "Ta wersja programu wymaga do działania zainstalowanego pakietu programu Microsoft Excel";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(216, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Sprawdź czy pojawiła się nowsza wersja:";
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 155);
+            label3.Name = "label3";
+            label3.Size = new Size(216, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Sprawdź czy pojawiła się nowsza wersja:";
             // 
             // linkLabel1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 170);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(211, 15);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "www.mojajeszczenieistniejącastrona.pl";
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(12, 170);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(211, 15);
+            linkLabel1.TabIndex = 4;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "www.mojajeszczenieistniejącastrona.pl";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(423, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Aktualna wersja: 2.2";
+            label4.AutoSize = true;
+            label4.Location = new Point(423, 170);
+            label4.Name = "label4";
+            label4.Size = new Size(111, 15);
+            label4.TabIndex = 5;
+            label4.Text = "Aktualna wersja: 2.3";
             // 
             // InfoScr
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(546, 190);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(562, 229);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(562, 229);
-            this.Name = "InfoScr";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "Info";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.RosyBrown;
+            ClientSize = new Size(546, 190);
+            Controls.Add(label4);
+            Controls.Add(linkLabel1);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Cursor = Cursors.Hand;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            MaximumSize = new Size(562, 229);
+            MinimizeBox = false;
+            MinimumSize = new Size(562, 229);
+            Name = "InfoScr";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            Text = "Info";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
