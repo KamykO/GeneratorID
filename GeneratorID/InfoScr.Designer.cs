@@ -69,10 +69,11 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Location = new Point(12, 170);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(211, 15);
+            linkLabel1.Size = new Size(195, 15);
             linkLabel1.TabIndex = 4;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "www.mojajeszczenieistniejącastrona.pl";
+            linkLabel1.Text = "https://kamykonet.wordpress.com/";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label4
             // 
